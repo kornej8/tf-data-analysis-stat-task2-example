@@ -10,8 +10,8 @@ def solution(p: float, x: np.array) -> float:
     alpha = 1 - p
     n = len(x)
     s = sum([(x_i - x.mean())**2 for x_i in list(x)]) / n
-    left_chi = chi2.ppf(1 - alpha / 2, df = 2*len(x))
-    rigth_chi = chi2.ppf(alpha / 2, df = 2*len(x))
+    left_chi = chi2.ppf(1 - alpha / 2, df = 2*len(x)-2)
+    rigth_chi = chi2.ppf(alpha / 2, df = 2*len(x)-2)
     left = np.sqrt(((n-1) * s**2) / (40 * left_chi))
     right = np.sqrt(((n-1) * s**2) / (40 * rigth_chi))
     return left, \
