@@ -13,6 +13,6 @@ def solution(p: float, x: np.array) -> float:
     left_chi = chi2.ppf(1 - alpha / 2, df = 2*len(x))
     rigth_chi = chi2.ppf(alpha / 2, df = 2*len(x))
     left = np.sqrt(((n-1) * s**2) / (40 * left_chi))
-    right = np.sqrt(((n-1) * s**2) / (40 * left_chi))
+    right = np.sqrt(((n-1) * s**2) / (40 * rigth_chi))
     return left, \
            right
